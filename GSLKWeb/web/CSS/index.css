@@ -1,0 +1,1106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 05/02/2019, 17:23:24
+    Author     : Lucas Kretschmer
+*/
+
+/*  Reset  */
+body{
+    margin: 0 auto;
+    width: 100%;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+a, p, h1, h2, h3, ul, li{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+}
+.transition3s{
+    transition: .3s;
+}
+.nome-cliente{
+    float: right;
+    margin: 0.2% 2% 0% 1%;
+    width: 35%;
+    text-align: right;
+}
+.header-mid-fixo{
+    display: inline-block;
+    position: fixed;
+    z-index: 999999;
+    top: -100px;
+    right: 0px;
+    width: 100%;
+    text-align: right;
+    background-color: #265d0c;
+    border-bottom: 1px solid #265d0c;
+    padding: 14px 23px 7px 0px;
+    transition: 0.3s;
+    box-shadow: -2px -2px 12px black;
+}
+
+.header-mid-fixo.header-mid-fixo-visivel {}
+.hedaer-mid-nav-fixo{
+    width: 99%;
+    display: inline-block;
+}
+.header-mid-menu-ul-fixo{
+    display: inline-block;
+    width: 34%;
+    color: whitesmoke;
+}
+.header-mid-fixo-visivel{top: 0;}
+
+/* Objeto do ENTRAR, Style importante, alterado com JS, nao mecher */
+.btnEntrarValue, .btnCadastroValue{
+    display: none;
+}
+.btnEntrarValue span, .btnCadastroValue span{
+    text-align: center;
+    display: inline-block;
+    margin: 1% 0% 5% 0%;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    color: darkgoldenrod;
+}
+.btnEntrarValue p, .btnCadastroValue p{
+    display: inline-block;
+    margin: 4% 0% 5% 8%;
+    width: 80%;
+    text-align: center;
+    font-size: 1.2em;
+    color: darkslategray;
+}
+.btnEntrarValue span:hover, .btnCadastroValue span:hover{
+    color:blue;
+    text-decoration: underline;
+}
+.tampaBack{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 9999999;
+    display: none;
+}
+.divCadastro{float: left;width: 33.2%;}
+.divCadastro1{padding-top: 19px;}
+.divCadastroTransition{position: absolute;width: 300%;transition: .3s;left:0em;}
+.divCadastroContainer{position: relative;width: 100%;height: 25.5em;}
+.btnCadastroValue{width: 100%;}
+.entrarStyle{
+    width: 30%;
+    min-height: 85%;
+    position: fixed;
+    left: 37%;
+    background-color: white;
+    border-collapse: collapse;
+    box-shadow: 3px 3px 5px 2px black;
+    border-radius: 2px;
+    overflow: hidden;
+    top: 8%;
+}
+.entrarStyle-div{
+    background-color: cadetblue;
+    color: ghostwhite;
+    height: 18%;
+    box-shadow: 0px 2px 2px 0px grey;
+    text-align: center;
+    margin-bottom: 3%;
+    overflow: hidden;
+    clear: both;
+}
+.h1Entrar{
+    float: left;
+    width: 46%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-right: 1px solid;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.h1Cadastrese{
+    float: right;
+    width: 54%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.btnEntrar {
+    box-shadow: 1px 1px 1px 1px grey;
+    margin-bottom: 5%;
+    display: inline-block;
+    width: 89%;
+    margin: 4% 0% 1% 4%;
+    text-align: center;
+    background-color: cadetblue;
+    color: ghostwhite;
+    height: 2em;
+    font-size: 1.4em;
+    padding-top: 2%;
+    margin-bottom: 5%;
+}
+.btnEntrar:active{
+    box-shadow: -1px -1px 1px 1px grey;
+}
+.btnEntrar:hover{
+    background-color: gold;
+    cursor: pointer;
+    color: black;
+}
+.entrarStyle input{
+    height: 45px;
+    width: 89%;
+    font-size: 1em;
+    border-radius: 2px;
+    border: none;
+    margin: 2% 5.5%;
+    box-shadow: 1px 1px 3px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    padding: 2px 2px 2px 10px;
+}
+.selected{
+    text-decoration: underline;
+}
+.lineSelected{
+    background-color: lightgreen;
+}
+.btn-fecharTela-plano{
+    float: right;
+    font-size: 1.3em;
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    height: 22px;
+    overflow: hidden;
+}
+.btn-fecharTela-plano:hover{
+    color: red;
+}
+.btn-fecharTela-plano:active{
+    color: black;
+}
+.btn-fecharTela{
+    float: right;
+    font-size: 1.3em;
+    position: absolute;
+    top: 3.5em;
+    right: 1.2em;
+    height: 22px;
+    color: cadetblue;
+    overflow: hidden;
+}
+.btn-fecharTela:hover{
+    color: red;
+}
+.btn-fecharTela:active{
+    color: black;
+}
+
+.contato {
+    width: 100%;
+    background-color: #487532;
+    display: inline-grid;
+    align-items: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+/*  Header  */
+header{
+    background-color: cadetblue;
+    box-shadow: 1px 1px 1px 1px black;
+}
+#header-top{
+    width: 100%;
+    padding: 1% 1% 0% 1%;
+    float: left;
+    background-color: #265d0c;
+    color: white;
+    position: relative;
+    box-shadow: -6px -2px 10px black;
+    height: 13vh;
+}
+#header-top span{
+    margin-right: 3px;
+}
+.header-top-esc{
+    margin-left: 1em;
+    color: ghostwhite;
+    padding: 0.3% 0.9%;
+    margin-top: 0%;
+    float: left;
+    font-size: 1.1em;
+}
+.header-top-esc-esc{
+    margin-left: 8%;
+}
+.header-top-esc:hover{
+    color:gold;
+    text-decoration: underline;
+}
+.header-top-esc:active{
+    background-color: black;
+}
+.header-top-dir{
+    float: right;
+    margin-left: 0.4em;
+    margin-right: 0.6em;
+}
+.hedaer-mid-nav{
+    display: inline-block;
+    margin-top: 2.2%;
+    width: 51%;
+    position: absolute;
+    right: 2em;
+}
+#header-mid{
+    width: 100%;
+}
+.header-mid-logo{
+    width: 7%;
+    float: left;
+    background-color: #487532;
+    box-shadow: 0.7px 0.7px 8.3px -2px black;
+    border-radius: 2px;
+    position: absolute;
+}
+.header-mid-logo-menor{
+    width: 4%;
+    float: left;
+    background-color: #487532;
+    box-shadow: 0.7px 0.7px 8.3px -2px black;
+    border-radius: 2px;
+    margin-left: 0%;
+    position: absolute;
+}
+.header-mid-menu-ul{
+    width: 100%;
+    text-align: right;
+}
+.header-mid-menu-li-usuario a{
+    color:white;
+}
+.header-mid-menu-li-usuario {
+    background-color: #2b7a06;
+    background-image: -webkit-linear-gradient(top, #2b7a06, #389e08);
+    background-image: linear-gradient(to bottom, #2b7a06, #389e08);
+    border-radius: 2px;
+    box-shadow: 0.7px 0.7px 8.3px -2px black;
+    cursor: pointer;
+    padding: 1.1vh 1.7vh;
+    margin-left: 2.5%;
+    text-align: center;
+    overflow: hidden;
+    height: 4.6vh;
+    float: right;
+    transition: 0.2s;
+    font-size: 2vh;
+    color: ghostwhite;
+    text-shadow: 3px 3px 6px black;
+}
+.header-mid-menu-li-usuario:hover {height: 5.1em;}
+.header-mid-menu-li a{
+    color:white;
+}
+.header-mid-menu-li {
+    background-color: #2b7a06;
+    border-radius: 2px;
+    box-shadow: 0.7px 0.7px 8.3px -2px black;
+    font-size: 2vh;
+    padding: 0.9% 1.7%;
+    margin-left: 2.5%;
+    background: #2b7a06;
+    background-image: -webkit-linear-gradient(top, #2b7a06, #389e08);
+    background-image: linear-gradient(to bottom, #2b7a06, #389e08);
+    color: whitesmoke;
+    text-shadow: 6px 1px 20px #6b7279;
+    border: solid #2b7a06 1px;
+    text-decoration: none;
+    cursor: pointer;
+    height: 4.6vh;
+    color: ghostwhite;
+    text-shadow: 3px 3px 6px black;
+}
+.header-mid-menu-li:hover {background: #429c17;background-image: -webkit-linear-gradient(top, #429c17, #389e08);background-image: linear-gradient(to bottom, #429c17, #389e08);text-decoration: none;}
+
+li#header_btnHome {
+    color: ghostwhite;
+    text-shadow: 3px 3px 6px black;
+}
+
+li#header_btnHome {}
+.header-mid-menu-li:active {
+    box-shadow: 1.5px 1.5px 6px -1px inset black;
+}
+.usuario-conta{
+    overflow: hidden;
+    width: 100%;
+}
+.usuario-conta:hover {
+    text-decoration: underline;
+}
+.div-inicio-conteudo{
+    float: left;
+    overflow: hidden;
+    padding-bottom: 1.1%;
+    width: 100%;
+    align-items: center;
+    display: inline-grid;
+    padding-top: 2em;
+}
+.header-mid-menu-li-fixo{
+    padding: 1.2% 3% 1.1% 3%;
+    font-size: 1.2em;
+    margin: 0% 2% 1% 2%;
+}
+/*  main  */
+#main-planos{
+    margin: 1.5% 0% 0.5% 0%;
+}
+.main-planos-container{
+    display: inline-block;
+    margin: 0% 0.5% 0% 0.5%;
+}
+.hexagono {
+    overflow: hidden;
+    visibility: hidden;
+    transform: rotate(120deg);
+}
+.hexagono-div1 {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-60deg);
+}
+.hexagono-div2 {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-60deg);
+    visibility: visible;
+    background-color: #265d0c;
+}
+.hexagono-medidas {
+    width: 100px;
+    height: 119px;
+    margin: 4% 2% 2% 6.5%;
+    padding: 0;
+    display: inline-block;
+    float: left;
+}
+.hexagono-div2 span{
+    display: inline-block;
+    margin: 46% 0% 0% 4%;
+    color: gold;
+    text-shadow: 1px 1px saddlebrown;
+    font-size: 1.3em;
+}
+.main-planos-top{
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    margin: 1% 5.7% 0.3% 0%;
+    text-shadow: 1px 1px darkslategrey;
+}
+.main-planos-mid{
+    text-align: center;
+    width: 65%;
+    display: inline-block;
+    float: left;
+    margin: 1% 3% 2% 1%;
+}
+#main-planos-button {
+    -moz-box-shadow:inset 0px 1px 0px 0px #fff6af;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #fff6af;
+    box-shadow:inset 0px 1px 0px 0px #fff6af;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+    background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+    background-color:#ffec64;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #ffaa22;
+    display:inline-block;
+    cursor:pointer;
+    color:#333333;
+    font-size:15px;
+    font-weight:bold;
+    padding: 2.1vh 2vw;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffee66;
+    margin: 6% 0% 0% 0%;
+}
+#main-planos-button:hover {
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+    background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+    background-color:#ffab23;
+}
+#main-planos-button:active {
+    position:relative;
+    top:1px;
+}
+.main-planos-mid h1{
+    margin: 1% 0% 2% 0%;
+}
+.main-planos-mid p{
+    margin-bottom: 0%;
+    max-height: 4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+#btn_usuario_conta:hover{background: #429c17;background-image: -webkit-linear-gradient(top, #429c17, #389e08);background-image: linear-gradient(to bottom, #429c17, #389e08);text-decoration: none;}
+* {
+    box-sizing:border-box
+}
+.slideshow-container {
+    overflow: hidden;
+    float: left;
+    margin: auto;
+    max-width: 56em;
+    max-height: 29em;
+    border: 2px solid darkgreen;
+    border-collapse: collapse;
+    border-radius: 4px;
+    border-style: hidden;
+    box-shadow: 1px 1px 13px 0px black;
+    display: inline-grid;
+    position: relative;
+    align-content: center;
+}
+.mySlides {
+    display: none;
+}
+.pontos-slides{
+    float: left;
+    text-align: center;
+    display: inline-block;
+    margin: 0.3% 0% 0% 0%;
+    width: 100%;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    text-shadow: 2px 2px black;
+}
+.numbertext img{
+    width: 100%;
+}
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+    background-color: #717171;
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+.main-apresentacao{
+    padding-top: 1.3%;
+    margin-top: 1.3%;
+    overflow: hidden;
+    color: black;
+}
+.main-apresentacao-titulo{
+    margin: 0;
+}
+.main-apresentacao-container{
+    overflow: hidden;
+}
+.main-apresentacao-container-img img{
+    width: 100%;
+    box-shadow: 0px 0px 15px -1px black;
+}
+.main-apresentacao-container-img{
+    width: 40%;
+    margin: 2% 1.5% 1% 3%;
+    float: left;
+}
+.main-apresentacao-container-texto h1{
+    margin: 4% 0% 1% 14%;
+    display: inline-block;
+    font-size: 2em;
+}
+.main-apresentacao-container-texto p{
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    font-size: 1.2em;
+}
+.main-apresentacao-container-img-dir{
+    width: 40%;
+    margin: 2% 3% 1% 2.3%;
+    float: right;
+}
+.main-apresentacao-container-img-dir img{
+    width: 100%;
+    box-shadow: 0px 0px 15px -1px black;
+}
+.main-apresentacao-container-texto-dir h1{
+    margin: 4% 0% 1% 16%;
+    display: inline-block;
+    font-size: 2em;
+}
+.main-apresentacao-container-texto-dir p{
+    display: inline-block;
+    width: 51%;
+    text-align: center;
+    font-size: 1.2em;
+    float: right;
+}
+footer{
+    width: 100%;
+    padding: 1% 4% 0.3% 3%;
+    overflow: hidden;
+    background-color: #265d0c;
+}
+.footer-logo{
+    width: 19%;
+    display: inline-block;
+    padding-left: 1%;
+    float: left;
+}
+.footer-logo img{
+    width: 100%;
+}
+.footer-texto-esc{
+    float: left;
+    width: 36%;
+    padding: 4.3% 0% 10.6% 1.3%;
+    border-left: 2px solid;
+    margin-left: 2%;
+}
+.footer-texto-dir{
+    float: left;
+    width: 35%;
+    border-left: 2px solid;
+    padding: 4.3% 0% 7.4% 1.3%;
+}
+.copright{
+    display: block;
+    clear: both;
+    margin: 9px auto;
+    width: 100%;
+    text-align: center;
+}
+.index{
+    width: 100%;
+}
+/* Apartir daqui e Contato */
+.form-fieldset{
+    display: inline-grid;
+    padding: 2%;
+    border-radius: 3px;
+    margin: auto;
+    background-color: white;
+}
+.form-fieldset H1{
+    text-align: center;
+    width: 100%;
+}
+.form-fieldset input{
+    font-size: 1.2rem;
+    height: 34px;
+    width: 100%;
+    border-radius: 2px;
+    border: none;
+    margin: 12px 0;
+    box-shadow: 1px 1px 5px 0.7px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    padding: 2px 2px 2px 10px;
+}
+.form-fieldset textArea{
+    font-size: 1.5rem;
+    width: 100%;
+    border-radius: 2px;
+    border: none;
+    margin: 12px 0;
+    box-shadow: 1px 1px 3px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    padding: 2px 2px 2px 10px;
+}
+.contato-botao{
+    height: 34px;
+    width: 100%;
+    border-radius: 2px;
+    border: none;
+    margin: 12px 0;
+    box-shadow: 1px 1px 3px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    padding: 2px 2px 2px 10px;
+    background-color: #66A847;
+    color: #fff;
+}
+.contato-botao:hover{
+    background: #44A816;
+    color: #fff;
+    cursor: pointer;
+}
+.minhaConta{
+    display: inline-block;
+    width: 100%;
+}
+.listaOpcoes{
+    display: inline-block;
+    float: left;
+    width: 15%;
+    min-height: 49em;
+    background-color: #487532;
+    box-shadow: 0px -1px 8px -1px;
+    padding-top: 3vh;
+}
+.listaOpcoes-li{
+    margin: 4% 2% 0% 9%;
+    padding: 2%;
+    font-size: 1.2rem;
+    width: 100%;
+    cursor: pointer;
+    color: #ddd;
+    transition: .2s;
+}
+.listaOpcoes-li:hover {
+    transform: scale(1.1);
+    color: #fff;
+    transform-origin: left center;
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px gray;
+}
+.opcoes_faturas{
+    display: inline-block;
+    width: 84.8%;
+    margin-left: 0px;
+    margin-top: -1px;
+}
+.opcoes_faturas table{
+    width: 100%;
+    text-align: center;
+}
+.opcoes_faturas th{
+}
+.opcoes_faturas tr{}
+.opcoes_faturas td{
+
+}
+.centralizaNaDiv{
+    display: inline-grid;
+    width: 100%;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: -4px;
+}
+.table {
+    color: #212529;
+    background-color: white;
+    float: right;
+}
+table {
+    border-collapse: collapse;
+}
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+.table-sm td, .table-sm th {
+    padding: .3rem;
+}
+.table td, .table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+th {
+    text-align: inherit;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(70, 105, 92, 0.09);
+}
+.TMcod{
+
+}
+.TMDtVencimento{
+
+}
+.TMValor{
+
+}
+.TMStatus{
+
+}
+.TMDtLiquidado{
+
+}
+.TMDescricao{
+
+}
+.opcoes_config{
+    min-height: 31em;
+    float: left;
+    width: 85%;
+    padding-left: 1%;
+    box-shadow: 0px 4px 5px -3px grey inset;
+    padding-top: 8px;
+}
+.input-padrao{
+    height: 45px;
+    font-size: 1em;
+    border-radius: 2px;
+    margin: 1% 0% 1% 1%;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    padding: 3px 2px 2px 10px;
+}
+.cclifor{
+    width: 9%;
+}
+.nome{
+    width: 35%;
+}
+.dtCadastro{
+    width: 17%;
+}
+.endereco{
+    width: 37%;
+}
+.bairro{
+    width: 24%;
+}
+.cep{
+    width: 11%;
+}
+.cidade{
+    width: 26%;
+}
+.telefone{
+    width: 12%;
+}
+.celular{
+    width: 12%;
+}
+.cpf{
+    width: 14%;
+}
+.cclifor1{
+    width: 89%;
+}
+.nome1{
+    width: 95%;
+}
+.dtCadastro1{
+    width: 90%;
+}
+.endereco1{
+    width: 97%;
+}
+.bairro1{
+    width: 95%;
+}
+.cep1{
+    width: 95%;
+}
+.cidade1{
+    width: 95%;
+}
+.telefone1{
+    width: 95%;
+}
+.celular1{
+    width: 95%;
+}
+.cpf1{
+    width: 95%;
+}
+.email{
+    width: 37%;
+}
+.email1{
+    width: 98%;
+}
+.senha{
+    width: 26%;
+}
+.senha1{
+    width: 97%;
+}
+.confSenha{
+    width: 26%;
+}
+.confSenha1{
+    width: 98%;
+}
+.comp{
+    width: 45.5%;
+}
+.comp1{width: 97%;}
+.num{
+
+}
+
+.ccontrato1{width: 97%;}
+.dataContrato1{width: 97%;}
+.valor1{width: 97%;}
+.nomePlano1{width: 97%;}
+.qtdePessoas1{width: 97%;}
+.nomePagamento1{width: 97%;}
+.qtdedias1{width: 97%;}
+.ccontrato{width: 16%;}
+.dataContrato{width: 15%;}
+.valor{width: 14%;}
+.nomePlano{width: 50%;}
+.qtdePessoas{width: 9%;}
+.nomePagamento{width: 28%;}
+.qtdedias{width: 11%;}
+.separador{
+    width: 100%;
+    height: 3px;
+    background-color: lightgray;
+}
+.titulo-opcoes{
+    width: 100%;
+    margin: 6px 0px 12px 0px;
+    text-align: center;
+    font-size: 1.8em;
+}
+.opcoes_config div{
+    display: inline-block;
+}
+.opcoes_config span{
+    float: left;
+    width: 100%;
+}
+.btn-salvar{
+    font-size: 1.2rem;
+    height: 36px;
+    width: 12%;
+    border-radius: 2px;
+    border: none;
+    margin: 12px 0%;
+    color: aliceblue;
+    box-shadow: 1px 1px 3px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    background-color: #66A847;
+}
+.btn-salvar:hover{
+    background: #44A816;
+    color: #fff;
+    cursor: pointer;
+}
+.div-btn-opcoes{
+    width: 100%;
+}
+.opcoes_fatura{
+    overflow: auto;
+    max-height: 49em;
+}
+.lquidado{
+    color: green;
+}
+.atrasado{
+    color: red;
+}
+.pendente{
+    color: gray;
+}
+.contrataPlano-tituloPlano{width: 100%;text-align: center;font-size: 1.4em;}
+.contrataPlano-descPlano{text-align: justify;}
+.contrataPlano-paga{
+
+}
+.contrataPlano-valor{display: inline-block;position: absolute;right: 7%;bottom: 10%;font-weight: bold;font-size: 1.3em;}
+.tampaBackPromocao{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.contrataPlano{align-items: center;width: 50%;margin: 2em auto 0 auto;padding: 2em;background-color: lightslategrey;color: white;box-shadow: 1px 1px 6px 0px ghostwhite;position: relative;}
+.cursorPointer{
+    cursor: pointer;
+}
+.btn-salvar-plano{
+    font-size: 1.2rem;
+    width: 19%;
+    border-radius: 2px;
+    border: none;
+    margin: 6% 0% 2% 6%;
+    box-shadow: 1px 1px 3px rgba(8,81,120,0.25);
+    box-sizing: border-box;
+    background-color: cadetblue;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn-salvar-plano:hover{
+    background-color: gold;
+    cursor: pointer;
+    color: black;
+}
+.btn-salvar-plano span{
+    display: inline-block;
+    margin: 3px;
+    height: 32px;
+}
+
+
+.exemplo2 input[type=radio], .exemplo2 input[type=checkbox]{
+    display:none; /* Esconde os inputs */
+}
+.exemplo2 label {
+    cursor: pointer;
+}
+.exemplo2 input[type="radio"] + label:before, .exemplo2 input[type="checkbox"] + label:before {
+    border: 1px solid #5D5C5C;
+    content: "\00a0";
+    display: inline-block;
+    font: 16px/1em sans-serif;
+    height: 16px;
+    margin: 0 .25em 0 0;
+    padding:0;
+    vertical-align: top;
+    width: 16px;
+    border-radius:4px;
+}
+.exemplo2 input[type="radio"]:checked + label:before, .exemplo2 input[type="checkbox"]:checked + label:before {
+    background: #A0A0A0;
+    color: #FFF;
+    content: "\2713";
+    text-align: center;
+}
+.exemplo2 input[type="radio"]:checked + label:after, .exemplo2 input[type="checkbox"]:checked + label:after {
+    font-weight: bold;
+}
+.btnfechatela:hover{
+    background-color: red;
+    cursor: pointer;
+    color: white;
+}
+.btnfechatela:active{
+    color: black;
+}
+.divTiposPagamento{
+    overflow: auto;
+    max-height: 4em;
+}
+select.basic {
+    width: 200px;
+    transition:.3s;
+}
+.btnPDF{
+    cursor: pointer;
+    font-size: 1.3em;
+}
+.divinput{
+    width: 98%;
+}
+.tableD{
+    width: 98%;
+    box-shadow: none;
+}
+.dataDependente {
+    width: 15%;
+}
+.ufDependente {
+    width: 7%;
+}
+.barraPDF{
+    margin: 0.5% 1.5% 0% 1.2%;
+    overflow: hidden;
+    background-color: #9a9a9a;
+}
+#closePDF{
+    float: right;
+    font-size: 1.5em;
+    margin: 0.2% 0.7% 0.2% 0%;
+    color: ghostwhite;
+    cursor: pointer;
+}
+#closePDF:hover {
+    color: black;
+}
+
+
+.grauDependente{width: 19%;}
+/*MANTER ISSO AQUI ABAIXO DE TUDO*/
+.visivel, .visivell, .cont-visivel, .user-visivel{
+    display: inline-block;
+}
+.cont-inVisivel, .user-inVisivel{
+    display: none;
+}
