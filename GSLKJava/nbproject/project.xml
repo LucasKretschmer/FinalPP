@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.j2ee.ejbjarproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/j2ee-ejbjarproject/3">
+            <name>GSLKJava</name>
+            <minimum-ant-version>1.6.5</minimum-ant-version>
+            <included-library dirs="200">file.reference.ArquivosConfiguracao.jar</included-library>
+            <included-library dirs="200">file.reference.ComponenteHtml.jar</included-library>
+            <included-library dirs="200">file.reference.TecniFuncoes.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconCalculoICMS.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconClasseRelatorio.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconCompilador.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconConsultaCheckCheck.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconConsultaSOAWebServices.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconConsultaSOAWebServicesPROD.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconCriptografia.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconDB.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconDBManager.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconDMDados.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconDMTabelas.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconDiff.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconESocialComunica.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconESocialSchema_v02_05.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconEnviarEmaill.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconExcecoes.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconExpedicao.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconFW.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconFactoryPDF.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconFileUtils.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconFlex.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconFlyingSaucerR10.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconFolha.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconGeral.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconInfoHardware.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconInformacoes.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconInterfaces.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconJson.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconLookup.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconMCP.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconMail.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconNFEDistribuicao.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconPDFRenderer.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconPolice.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconPreco.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconPrintECF.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconProcSinc.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconPropertySet.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconRMIRemote.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconSPC.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconSwingUtils.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconTDataSet.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconTSessao.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconTrataPostLib.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconUtils.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconVersao.jar</included-library>
+            <included-library dirs="200">file.reference.TecniconWorkflowEngine.jar</included-library>
+            <source-roots>
+                <root id="src.dir" name="Pacotes de Códigos-fonte"/>
+            </source-roots>
+            <test-roots>
+                <root id="test.src.dir" name="Pacotes de Teste"/>
+            </test-roots>
+        </data>
+    </configuration>
+</project>
