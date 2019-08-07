@@ -173,7 +173,7 @@ a, p, h1, h2, h3, ul, li{
     text-decoration: underline;
 }
 .lineSelected{
-    background-color: lightgreen;
+    background-color: lightgreen !important;
 }
 .btn-fecharTela-plano{
     float: right;

@@ -14,5 +14,8 @@
                 <root id="test.src.dir" name="Pacotes de Teste"/>
             </test-roots>
         </data>
+        <formeditor xmlns="http://controlsjs.com/netbeans/tools/formeditor/">
+            <formeditor_sourcefilter>"custom;system;wineight%20skin;"</formeditor_sourcefilter>
+        </formeditor>
     </configuration>
 </project>

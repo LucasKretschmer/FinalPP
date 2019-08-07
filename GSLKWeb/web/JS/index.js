@@ -180,8 +180,6 @@ function inserirDependente(e) {
     document.querySelector("#localDependente").value = "";
     document.querySelector("#ufDependente").value = "";
     document.querySelector("#cpfDependente").value = "";
-
-
 }
 
 function editarDependente() {
@@ -204,7 +202,7 @@ function salvarDependente() {
     var uf = document.querySelector("#ufDependente").value;
     var cpf = document.querySelector("#cpfDependente").value;
 
-    executaServico("GSLKJava", "dependentes", "insertDependente",
+    executaServico("GSLKJava", "dependentes", "addDependente",
             function (data) {
                 document.querySelector("#nomeDependente").value = "";
                 document.querySelector("#grauDependente").value = "";
@@ -222,10 +220,21 @@ function salvarDependente() {
             }, function (erro) {
         alert("Erro na requisição: " + erro, "Atenção!");
     }, "&CCLIFOR=" + getCookie("cod") + "&NOME=" + nome + "&GRAU=" + grau + "&DATA=" + data + "&CIDADE=" + local + "&UF=" + uf + "&CPF=" + cpf);
+    mudaAbaOpcoesDep();
 }
 
 function excluirDependente() {
-    document.querySelector("");
+    var tr = document.querySelector(".lineSelected");
+    var clifordep = tr.getAttribute("ccliforfilho");
+    var clifor = tr.getAttribute("cclifor");
+
+    executaServico("GSLKJava", "dependentes", "apagaDep",
+            function (data) {
+                alert(data);
+            }, function (erro) {
+        alert("Erro na requisição:" + erro, "Atenção!");
+    }, "&CLIFOR=" + clifor + "&CLIFORDEP=" + clifordep);
+    mudaAbaOpcoesDep();
 }
 
 function avancaCad(e) {
@@ -390,7 +399,7 @@ function mudaAbaOpcoesConf() {
 function mudaAbaOpcoesDep() {
     executaServico2("GSLKJava", "dependentes", "atualizaGrid",
             function (data) {
-                document.querySelector("#tableDependentes").innerHTML = data.innerHTML;
+                document.querySelector("#tableDependentes").innerHTML = data;
                 var linhaDependente = document.querySelectorAll(".tdDependentes");
                 for (var i = 0; i < linhaDependente.length; i++) {
                     linhaDependente[i].addEventListener("click", alteraDadosDependente);
@@ -417,6 +426,20 @@ function alteraDadosDependente(e) {
     }
 
     tr.classList.add("lineSelected");
+    var cliforfilho = tr.getAttribute("ccliforfilho");
+    var clifor = tr.getAttribute("cclifor");
+
+    executaServico("GSLKJava", "dependentes", "buscaDadosDep",
+            function (data) {
+                document.querySelector("#nomeDependente").value = data.NOME;
+                document.querySelector("#grauDependente").value = data.DEP;
+                document.querySelector("#dataDependente").value = data.DATA.split("/").reverse().join("-");
+                document.querySelector("#localDependente").value = data.LOCAL;
+                document.querySelector("#ufDependente").value = data.UF;
+                document.querySelector("#cpfDependente").value = data.CPF;
+            }, function (erro) {
+        alert("Erro na requisição:" + erro, "Atenção!");
+    }, "&CLIFOR=" + clifor + "&CLIFORDEP=" + cliforfilho);
 }
 
 function mudaAbaOpcoesRes() {
@@ -539,14 +562,14 @@ function executaServico2(projeto, classe, metodo, funcaoOK, funcaoErro, parametr
 }
 
 function xmlToJSON2(XMLDocument) {
-    var retorno = {result: XMLDocument.getElementsByTagName('result')[0],
-        erro: XMLDocument.getElementsByTagName('erro')[0].textContent};
+    var retorno = {result: XMLDocument.split("</result>")[0].split("<result>")[1],
+        erro: XMLDocument.split("</erro>")[0].split("<erro>")[1]};
     try {
-        retorno.result = JSON.parse(retorno.result);
+        retorno.result;
     } catch (e) {
     }
     try {
-        retorno.erro = JSON.parse(retorno.erro);
+        retorno.erro;
     } catch (e) {
     }
     return retorno;
@@ -576,7 +599,7 @@ function retornaDuplicatas(cclifor) {
     executaServico2("GSLKJava", "boletos", "retornaDuplicatas",
             function (data) {
                 if (data !== "") {
-                    document.querySelector(".boletos").innerHTML = data.innerHTML;
+                    document.querySelector(".boletos").innerHTML = data;
                     var boletos = document.querySelectorAll(".btnPDF");
                     for (var i = 0; i < boletos.length; i++) {
                         boletos[i].addEventListener("click", mostraPDF);
