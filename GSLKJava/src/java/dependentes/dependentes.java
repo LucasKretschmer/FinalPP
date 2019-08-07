@@ -1,29 +1,26 @@
 package dependentes;
 
 import br.com.tecnicon.server.dataset.TClientDataSet;
-import br.com.tecnicon.server.dataset.TSQLDataSetEmp;
 import br.com.tecnicon.server.execoes.ExcecaoMsg;
 import br.com.tecnicon.server.execoes.ExcecaoTecnicon;
 import br.com.tecnicon.server.sessao.VariavelSessao;
 import br.com.tecnicon.server.util.funcoes.Funcoes;
 import javax.ejb.Stateless;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
  * @author lucas.kretschmer
  */
 @Stateless
-public class dependentes
-{
+public class dependentes {
 
-    public String atualizaGrid(VariavelSessao vs) throws ExcecaoTecnicon
-    {
-        Funcoes.validaVSNNNome(vs, new String[]
-        {
+    public String atualizaGrid(VariavelSessao vs) throws ExcecaoTecnicon {
+        Funcoes.validaVSNNNome(vs, new String[]{
             "CCLIFOR", "Código do Cliente"
         });
-        try
-        {
+        try {
             int cclifor = Funcoes.strToInt(vs.getParameter("CCLIFOR"));
             int cclifordep;
             String grau;
@@ -33,13 +30,10 @@ public class dependentes
             cdsData.condicao(" WHERE CLIFORDEP.CCLIFOR = " + cclifor);
             cdsData.open();
 
-            if (!cdsData.isEmpty())
-            {
-                while (!cdsData.eof())
-                {
+            if (!cdsData.isEmpty()) {
+                while (!cdsData.eof()) {
                     cclifordep = cdsData.fieldByName("CCLIFORDEP").asInteger();
-                    switch (cdsData.fieldByName("GRAU").asInteger())
-                    {
+                    switch (cdsData.fieldByName("GRAU").asInteger()) {
                         case 11:
                             grau = "Marido/Esposa";
                             break;
@@ -63,8 +57,7 @@ public class dependentes
                             + "</tr>\n";
                     cdsData.next();
                 }
-            } else
-            {
+            } else {
                 html += "<tr>"
                         + "<td></td>"
                         + "<td>Sem dependentes</td>"
@@ -73,85 +66,89 @@ public class dependentes
             }
 
             return html;
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new ExcecaoMsg(vs, e.getMessage());
         }
     }
 
-    public String insertDependente(VariavelSessao vs) throws ExcecaoTecnicon
-    {
-        Funcoes.validaVSNNNome(vs, new String[]
-        {
+    public String buscaDadosDep(VariavelSessao vs) throws ExcecaoTecnicon {
+        try {
+            TClientDataSet cds = TClientDataSet.create(vs, "CLIFORDEP");
+            cds.createDataSet();
+            cds.condicao(" WHERE CLIFORDEP.CCLIFOR = " + vs.getParameter("CLIFOR") + " AND CLIFORDEP.CCLIFORDEP = " + vs.getParameter("CLIFORDEP"));
+            cds.open();
+
+            JSONObject jasao = new JSONObject();
+            jasao.put("NOME", cds.fieldByName("NOME").asString());
+            jasao.put("DEP", cds.fieldByName("GRAU").asString());
+            jasao.put("DATA", cds.fieldByName("DTNASC").asDate());
+            jasao.put("LOCAL", cds.fieldByName("CIDADE").asString());
+            jasao.put("UF", cds.fieldByName("UF").asString());
+            jasao.put("CPF", cds.fieldByName("CPFDEPENDENTE").asInteger());
+
+            return jasao.toString();
+        } catch (ExcecaoTecnicon | JSONException e) {
+            throw new ExcecaoTecnicon(vs, "Atenção", e, true);
+        }
+    }
+
+    public String addDependente(VariavelSessao vs) throws ExcecaoTecnicon {
+        Funcoes.validaVSNNNome(vs, new String[]{
             "CCLIFOR", "Código do Cliente"
-        }, new String[]
-        {
+        }, new String[]{
             "NOME", "Nome do Dependente"
-        }, new String[]
-        {
+        }, new String[]{
             "GRAU", "Grau de Parentesco"
-        }, new String[]
-        {
+        }, new String[]{
             "DATA", "Data de Nascimento"
         });
 
-        try
-        {
-            if (!Funcoes.varIsNull(vs.getParameter("CPF")))
-            {
-                TClientDataSet cds = TClientDataSet.create(vs, "CLIFORDEP");
-                cds.createDataSet();
-                cds.condicao(" WHERE CLIFORDEP.CPFDEPENDENTE = " + vs.getParameter("CPF") + " AND CLIFORDEP.CCLIFOR = " + vs.getParameter("CCLIFOR"));
-                cds.open();
+        try {
+            String result;
+            TClientDataSet cds = TClientDataSet.create(vs, "CLIFORDEP");
+            cds.createDataSet();
+            cds.condicao(" WHERE CLIFORDEP.NOME = '" + vs.getParameter("NOME") + "' "
+                    + " OR (CLIFORDEP.DTNASC = '" + vs.getParameter("DATA") + "' AND CLIFORDEP.CPFDEPENDENTE = " + vs.getParameter("CPF") + ") ");
+            cds.open();
 
-                if (!cds.isEmpty())
-                {
-                    vs.addParametros("CCLIFORDEP", cds.fieldByName("CCLIFORDEP").asInteger());
-                    return updateDep(vs);
-                }
+            if (cds.isEmpty()) {
+                result = "Registro inserido com sucesso!";
+                cds.insert();
+                cds.fieldByName("CCLIFOR").asInteger(Funcoes.strToInt(vs.getParameter("CCLIFOR")));
+            } else {
+                result = "Registro atualizado com sucesso!";
+                cds.edit();
             }
 
-            TClientDataSet cds = TClientDataSet.create("CLIFORDEP");
-            cds.createDataSet();
-            cds.insert();
-            cds.fieldByName("CCLIFOR").asInteger(Funcoes.strToInt(vs.getParameter("CCLIFOR")));
             cds.fieldByName("NOME").asString(vs.getParameter("NOME"));
             cds.fieldByName("GRAU").asString(vs.getParameter("GRAU"));
             cds.fieldByName("DTNASC").asDate(Funcoes.strToDate(vs, Funcoes.formatarDB(vs.getParameter("DATA"), "D")));
             cds.fieldByName("CIDADE").asString(vs.getParameter("CIDADE"));
             cds.fieldByName("UF").asString(vs.getParameter("UF"));
-            cds.fieldByName("CPFDEPENDENTE").asString(vs.getParameter("CPFDEPENDENTE"));
+            cds.fieldByName("CPFDEPENDENTE").asInteger(Funcoes.strToInt(vs.getParameter("CPF")));
             cds.post();
 
-            return "Registro inserido com sucesso!";
+            return result;
 
-        } catch (ExcecaoTecnicon e)
-        {
+        } catch (ExcecaoTecnicon e) {
             throw new ExcecaoMsg(vs, e.getMessage());
         }
     }
 
-    public String updateDep(VariavelSessao vs) throws ExcecaoTecnicon
-    {
-        Funcoes.validaVSNNNome(vs, new String[]
-        {
+    public String editaDep(VariavelSessao vs) throws ExcecaoTecnicon {
+        Funcoes.validaVSNNNome(vs, new String[]{
             "CCLIFOR", "Código do Cliente"
-        }, new String[]
-        {
+        }, new String[]{
             "CCLIFORDEP", "Código do Dependente"
-        }, new String[]
-        {
+        }, new String[]{
             "NOME", "Nome do Dependente"
-        }, new String[]
-        {
+        }, new String[]{
             "GRAU", "Grau de Parentesco"
-        }, new String[]
-        {
+        }, new String[]{
             "DATA", "Data de Nascimento"
         });
 
-        try
-        {
+        try {
             TClientDataSet cds = TClientDataSet.create("CLIFORDEP");
             cds.createDataSet();
             cds.condicao(" WHERE CLIFORDEP.CCLIFOR = " + vs.getParameter("CCLIFOR") + " AND CLIFORDEP.CCLIFORDEP = " + vs.getParameter("CLIFORDEP") + " ");
@@ -168,29 +165,26 @@ public class dependentes
             cds.post();
 
             return "Registro atualizado!";
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new ExcecaoMsg(vs, e.getMessage());
         }
     }
 
-    public String deleteDep(VariavelSessao vs) throws ExcecaoTecnicon
-    {
-        Funcoes.validaVSNNNome(vs, new String[]
-        {
-            "CCLIFOR", "Código do Cliente"
-        }, new String[]
-        {
-            "CCLIFORDEP", "Código do Dependente"
+    public String apagaDep(VariavelSessao vs) throws ExcecaoTecnicon {
+        Funcoes.validaVSNNNome(vs, new String[]{
+            "CLIFOR", "Código do Cliente"
+        }, new String[]{
+            "CLIFORDEP", "Código do Dependente"
         });
-        try
-        {
-            TSQLDataSetEmp insert = TSQLDataSetEmp.create(vs);
-            insert.execSQL(" DELETE FROM CLIFORDEP "
-                    + " WHERE CCLIFOR = " + vs.getParameter("CCLIFOR") + " AND CCLIFORDEP = " + vs.getParameter("CLIFORDEP"));
+        try {
+            TClientDataSet cds = TClientDataSet.create(vs, "CLIFORDEP");
+            cds.createDataSet();
+            cds.condicao(" WHERE CLIFORDEP.CCLIFOR = " + vs.getParameter("CLIFOR") + " AND CLIFORDEP.CCLIFORDEP = " + vs.getParameter("CLIFORDEP"));
+            cds.open();
+            cds.delete();
+
             return "Registro Excluido com sucesso!";
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             throw new ExcecaoMsg(vs, e.getMessage());
         }
     }

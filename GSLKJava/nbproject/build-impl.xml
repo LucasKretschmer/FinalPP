@@ -843,6 +843,56 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.TecniconUtils.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.TecniconVersao.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${file.reference.TecniconWorkflowEngine.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniFuncoes.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconCalculoICMS.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconClasseRelatorio.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconCompilador.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconConsultaCheckCheck.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconConsultaSOAWebServices.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconConsultaSOAWebServicesPROD.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconCriptografia.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconDB.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconDBManager.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconDMDados.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconDMTabelas.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconDiff.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconESocialComunica.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconESocialSchema_v02_05.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconEnviarEmaill.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconExcecoes.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconExpedicao.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconFW.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconFactoryPDF.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconFileUtils.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconFlex.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconFlyingSaucerR10.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconFolha.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconGeral.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconInfoHardware.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconInformacoes.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconInterfaces.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconJson.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconLookup.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconMCP.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconMail.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconNFEDistribuicao.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconPDFRenderer.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconPolice.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconPreco.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconPrintECF.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconProcSinc.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconPropertySet.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconRMIRemote.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconSPC.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconSwingUtils.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconTDataSet.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconTSessao.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconTrataPostLib.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconUtils.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconVersao.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.TecniconWorkflowEngine.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.ArquivosConfiguracao.jar-1}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.ComponenteHtml.jar-1}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
         <basename file="${file.reference.ArquivosConfiguracao.jar}" property="manifest.file.reference.ArquivosConfiguracao.jar"/>
@@ -895,8 +945,58 @@ exists or setup the property manually. For example like this:
         <basename file="${file.reference.TecniconUtils.jar}" property="manifest.file.reference.TecniconUtils.jar"/>
         <basename file="${file.reference.TecniconVersao.jar}" property="manifest.file.reference.TecniconVersao.jar"/>
         <basename file="${file.reference.TecniconWorkflowEngine.jar}" property="manifest.file.reference.TecniconWorkflowEngine.jar"/>
+        <basename file="${file.reference.TecniFuncoes.jar-1}" property="manifest.file.reference.TecniFuncoes.jar-1"/>
+        <basename file="${file.reference.TecniconCalculoICMS.jar-1}" property="manifest.file.reference.TecniconCalculoICMS.jar-1"/>
+        <basename file="${file.reference.TecniconClasseRelatorio.jar-1}" property="manifest.file.reference.TecniconClasseRelatorio.jar-1"/>
+        <basename file="${file.reference.TecniconCompilador.jar-1}" property="manifest.file.reference.TecniconCompilador.jar-1"/>
+        <basename file="${file.reference.TecniconConsultaCheckCheck.jar-1}" property="manifest.file.reference.TecniconConsultaCheckCheck.jar-1"/>
+        <basename file="${file.reference.TecniconConsultaSOAWebServices.jar-1}" property="manifest.file.reference.TecniconConsultaSOAWebServices.jar-1"/>
+        <basename file="${file.reference.TecniconConsultaSOAWebServicesPROD.jar-1}" property="manifest.file.reference.TecniconConsultaSOAWebServicesPROD.jar-1"/>
+        <basename file="${file.reference.TecniconCriptografia.jar-1}" property="manifest.file.reference.TecniconCriptografia.jar-1"/>
+        <basename file="${file.reference.TecniconDB.jar-1}" property="manifest.file.reference.TecniconDB.jar-1"/>
+        <basename file="${file.reference.TecniconDBManager.jar-1}" property="manifest.file.reference.TecniconDBManager.jar-1"/>
+        <basename file="${file.reference.TecniconDMDados.jar-1}" property="manifest.file.reference.TecniconDMDados.jar-1"/>
+        <basename file="${file.reference.TecniconDMTabelas.jar-1}" property="manifest.file.reference.TecniconDMTabelas.jar-1"/>
+        <basename file="${file.reference.TecniconDiff.jar-1}" property="manifest.file.reference.TecniconDiff.jar-1"/>
+        <basename file="${file.reference.TecniconESocialComunica.jar-1}" property="manifest.file.reference.TecniconESocialComunica.jar-1"/>
+        <basename file="${file.reference.TecniconESocialSchema_v02_05.jar-1}" property="manifest.file.reference.TecniconESocialSchema_v02_05.jar-1"/>
+        <basename file="${file.reference.TecniconEnviarEmaill.jar-1}" property="manifest.file.reference.TecniconEnviarEmaill.jar-1"/>
+        <basename file="${file.reference.TecniconExcecoes.jar-1}" property="manifest.file.reference.TecniconExcecoes.jar-1"/>
+        <basename file="${file.reference.TecniconExpedicao.jar-1}" property="manifest.file.reference.TecniconExpedicao.jar-1"/>
+        <basename file="${file.reference.TecniconFW.jar-1}" property="manifest.file.reference.TecniconFW.jar-1"/>
+        <basename file="${file.reference.TecniconFactoryPDF.jar-1}" property="manifest.file.reference.TecniconFactoryPDF.jar-1"/>
+        <basename file="${file.reference.TecniconFileUtils.jar-1}" property="manifest.file.reference.TecniconFileUtils.jar-1"/>
+        <basename file="${file.reference.TecniconFlex.jar-1}" property="manifest.file.reference.TecniconFlex.jar-1"/>
+        <basename file="${file.reference.TecniconFlyingSaucerR10.jar-1}" property="manifest.file.reference.TecniconFlyingSaucerR10.jar-1"/>
+        <basename file="${file.reference.TecniconFolha.jar-1}" property="manifest.file.reference.TecniconFolha.jar-1"/>
+        <basename file="${file.reference.TecniconGeral.jar-1}" property="manifest.file.reference.TecniconGeral.jar-1"/>
+        <basename file="${file.reference.TecniconInfoHardware.jar-1}" property="manifest.file.reference.TecniconInfoHardware.jar-1"/>
+        <basename file="${file.reference.TecniconInformacoes.jar-1}" property="manifest.file.reference.TecniconInformacoes.jar-1"/>
+        <basename file="${file.reference.TecniconInterfaces.jar-1}" property="manifest.file.reference.TecniconInterfaces.jar-1"/>
+        <basename file="${file.reference.TecniconJson.jar-1}" property="manifest.file.reference.TecniconJson.jar-1"/>
+        <basename file="${file.reference.TecniconLookup.jar-1}" property="manifest.file.reference.TecniconLookup.jar-1"/>
+        <basename file="${file.reference.TecniconMCP.jar-1}" property="manifest.file.reference.TecniconMCP.jar-1"/>
+        <basename file="${file.reference.TecniconMail.jar-1}" property="manifest.file.reference.TecniconMail.jar-1"/>
+        <basename file="${file.reference.TecniconNFEDistribuicao.jar-1}" property="manifest.file.reference.TecniconNFEDistribuicao.jar-1"/>
+        <basename file="${file.reference.TecniconPDFRenderer.jar-1}" property="manifest.file.reference.TecniconPDFRenderer.jar-1"/>
+        <basename file="${file.reference.TecniconPolice.jar-1}" property="manifest.file.reference.TecniconPolice.jar-1"/>
+        <basename file="${file.reference.TecniconPreco.jar-1}" property="manifest.file.reference.TecniconPreco.jar-1"/>
+        <basename file="${file.reference.TecniconPrintECF.jar-1}" property="manifest.file.reference.TecniconPrintECF.jar-1"/>
+        <basename file="${file.reference.TecniconProcSinc.jar-1}" property="manifest.file.reference.TecniconProcSinc.jar-1"/>
+        <basename file="${file.reference.TecniconPropertySet.jar-1}" property="manifest.file.reference.TecniconPropertySet.jar-1"/>
+        <basename file="${file.reference.TecniconRMIRemote.jar-1}" property="manifest.file.reference.TecniconRMIRemote.jar-1"/>
+        <basename file="${file.reference.TecniconSPC.jar-1}" property="manifest.file.reference.TecniconSPC.jar-1"/>
+        <basename file="${file.reference.TecniconSwingUtils.jar-1}" property="manifest.file.reference.TecniconSwingUtils.jar-1"/>
+        <basename file="${file.reference.TecniconTDataSet.jar-1}" property="manifest.file.reference.TecniconTDataSet.jar-1"/>
+        <basename file="${file.reference.TecniconTSessao.jar-1}" property="manifest.file.reference.TecniconTSessao.jar-1"/>
+        <basename file="${file.reference.TecniconTrataPostLib.jar-1}" property="manifest.file.reference.TecniconTrataPostLib.jar-1"/>
+        <basename file="${file.reference.TecniconUtils.jar-1}" property="manifest.file.reference.TecniconUtils.jar-1"/>
+        <basename file="${file.reference.TecniconVersao.jar-1}" property="manifest.file.reference.TecniconVersao.jar-1"/>
+        <basename file="${file.reference.TecniconWorkflowEngine.jar-1}" property="manifest.file.reference.TecniconWorkflowEngine.jar-1"/>
+        <basename file="${file.reference.ArquivosConfiguracao.jar-1}" property="manifest.file.reference.ArquivosConfiguracao.jar-1"/>
+        <basename file="${file.reference.ComponenteHtml.jar-1}" property="manifest.file.reference.ComponenteHtml.jar-1"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 jar-13 jar-14 jar-15 jar-16 jar-17 jar-18 jar-19 jar-20 jar-21 jar-22 jar-23 jar-24 jar-25 jar-26 jar-27 jar-28 jar-29 jar-30 jar-31 jar-32 jar-33 jar-34 jar-35 jar-36 jar-37 jar-38 jar-39 jar-40 jar-41 jar-42 jar-43 jar-44 jar-45 jar-46 jar-47 jar-48 jar-49 jar-50 "/>
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 jar-13 jar-14 jar-15 jar-16 jar-17 jar-18 jar-19 jar-20 jar-21 jar-22 jar-23 jar-24 jar-25 jar-26 jar-27 jar-28 jar-29 jar-30 jar-31 jar-32 jar-33 jar-34 jar-35 jar-36 jar-37 jar-38 jar-39 jar-40 jar-41 jar-42 jar-43 jar-44 jar-45 jar-46 jar-47 jar-48 jar-49 jar-50 jar-51 jar-52 jar-53 jar-54 jar-55 jar-56 jar-57 jar-58 jar-59 jar-60 jar-61 jar-62 jar-63 jar-64 jar-65 jar-66 jar-67 jar-68 jar-69 jar-70 jar-71 jar-72 jar-73 jar-74 jar-75 jar-76 jar-77 jar-78 jar-79 jar-80 jar-81 jar-82 jar-83 jar-84 jar-85 jar-86 jar-87 jar-88 jar-89 jar-90 jar-91 jar-92 jar-93 jar-94 jar-95 jar-96 jar-97 jar-98 jar-99 jar-100 "/>
             <attribute name="jar-1-Extension-Name" value="${manifest.file.reference.ArquivosConfiguracao.jar}"/>
             <attribute name="jar-2-Extension-Name" value="${manifest.file.reference.ComponenteHtml.jar}"/>
             <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.TecniFuncoes.jar}"/>
@@ -947,6 +1047,56 @@ exists or setup the property manually. For example like this:
             <attribute name="jar-48-Extension-Name" value="${manifest.file.reference.TecniconUtils.jar}"/>
             <attribute name="jar-49-Extension-Name" value="${manifest.file.reference.TecniconVersao.jar}"/>
             <attribute name="jar-50-Extension-Name" value="${manifest.file.reference.TecniconWorkflowEngine.jar}"/>
+            <attribute name="jar-51-Extension-Name" value="${manifest.file.reference.TecniFuncoes.jar-1}"/>
+            <attribute name="jar-52-Extension-Name" value="${manifest.file.reference.TecniconCalculoICMS.jar-1}"/>
+            <attribute name="jar-53-Extension-Name" value="${manifest.file.reference.TecniconClasseRelatorio.jar-1}"/>
+            <attribute name="jar-54-Extension-Name" value="${manifest.file.reference.TecniconCompilador.jar-1}"/>
+            <attribute name="jar-55-Extension-Name" value="${manifest.file.reference.TecniconConsultaCheckCheck.jar-1}"/>
+            <attribute name="jar-56-Extension-Name" value="${manifest.file.reference.TecniconConsultaSOAWebServices.jar-1}"/>
+            <attribute name="jar-57-Extension-Name" value="${manifest.file.reference.TecniconConsultaSOAWebServicesPROD.jar-1}"/>
+            <attribute name="jar-58-Extension-Name" value="${manifest.file.reference.TecniconCriptografia.jar-1}"/>
+            <attribute name="jar-59-Extension-Name" value="${manifest.file.reference.TecniconDB.jar-1}"/>
+            <attribute name="jar-60-Extension-Name" value="${manifest.file.reference.TecniconDBManager.jar-1}"/>
+            <attribute name="jar-61-Extension-Name" value="${manifest.file.reference.TecniconDMDados.jar-1}"/>
+            <attribute name="jar-62-Extension-Name" value="${manifest.file.reference.TecniconDMTabelas.jar-1}"/>
+            <attribute name="jar-63-Extension-Name" value="${manifest.file.reference.TecniconDiff.jar-1}"/>
+            <attribute name="jar-64-Extension-Name" value="${manifest.file.reference.TecniconESocialComunica.jar-1}"/>
+            <attribute name="jar-65-Extension-Name" value="${manifest.file.reference.TecniconESocialSchema_v02_05.jar-1}"/>
+            <attribute name="jar-66-Extension-Name" value="${manifest.file.reference.TecniconEnviarEmaill.jar-1}"/>
+            <attribute name="jar-67-Extension-Name" value="${manifest.file.reference.TecniconExcecoes.jar-1}"/>
+            <attribute name="jar-68-Extension-Name" value="${manifest.file.reference.TecniconExpedicao.jar-1}"/>
+            <attribute name="jar-69-Extension-Name" value="${manifest.file.reference.TecniconFW.jar-1}"/>
+            <attribute name="jar-70-Extension-Name" value="${manifest.file.reference.TecniconFactoryPDF.jar-1}"/>
+            <attribute name="jar-71-Extension-Name" value="${manifest.file.reference.TecniconFileUtils.jar-1}"/>
+            <attribute name="jar-72-Extension-Name" value="${manifest.file.reference.TecniconFlex.jar-1}"/>
+            <attribute name="jar-73-Extension-Name" value="${manifest.file.reference.TecniconFlyingSaucerR10.jar-1}"/>
+            <attribute name="jar-74-Extension-Name" value="${manifest.file.reference.TecniconFolha.jar-1}"/>
+            <attribute name="jar-75-Extension-Name" value="${manifest.file.reference.TecniconGeral.jar-1}"/>
+            <attribute name="jar-76-Extension-Name" value="${manifest.file.reference.TecniconInfoHardware.jar-1}"/>
+            <attribute name="jar-77-Extension-Name" value="${manifest.file.reference.TecniconInformacoes.jar-1}"/>
+            <attribute name="jar-78-Extension-Name" value="${manifest.file.reference.TecniconInterfaces.jar-1}"/>
+            <attribute name="jar-79-Extension-Name" value="${manifest.file.reference.TecniconJson.jar-1}"/>
+            <attribute name="jar-80-Extension-Name" value="${manifest.file.reference.TecniconLookup.jar-1}"/>
+            <attribute name="jar-81-Extension-Name" value="${manifest.file.reference.TecniconMCP.jar-1}"/>
+            <attribute name="jar-82-Extension-Name" value="${manifest.file.reference.TecniconMail.jar-1}"/>
+            <attribute name="jar-83-Extension-Name" value="${manifest.file.reference.TecniconNFEDistribuicao.jar-1}"/>
+            <attribute name="jar-84-Extension-Name" value="${manifest.file.reference.TecniconPDFRenderer.jar-1}"/>
+            <attribute name="jar-85-Extension-Name" value="${manifest.file.reference.TecniconPolice.jar-1}"/>
+            <attribute name="jar-86-Extension-Name" value="${manifest.file.reference.TecniconPreco.jar-1}"/>
+            <attribute name="jar-87-Extension-Name" value="${manifest.file.reference.TecniconPrintECF.jar-1}"/>
+            <attribute name="jar-88-Extension-Name" value="${manifest.file.reference.TecniconProcSinc.jar-1}"/>
+            <attribute name="jar-89-Extension-Name" value="${manifest.file.reference.TecniconPropertySet.jar-1}"/>
+            <attribute name="jar-90-Extension-Name" value="${manifest.file.reference.TecniconRMIRemote.jar-1}"/>
+            <attribute name="jar-91-Extension-Name" value="${manifest.file.reference.TecniconSPC.jar-1}"/>
+            <attribute name="jar-92-Extension-Name" value="${manifest.file.reference.TecniconSwingUtils.jar-1}"/>
+            <attribute name="jar-93-Extension-Name" value="${manifest.file.reference.TecniconTDataSet.jar-1}"/>
+            <attribute name="jar-94-Extension-Name" value="${manifest.file.reference.TecniconTSessao.jar-1}"/>
+            <attribute name="jar-95-Extension-Name" value="${manifest.file.reference.TecniconTrataPostLib.jar-1}"/>
+            <attribute name="jar-96-Extension-Name" value="${manifest.file.reference.TecniconUtils.jar-1}"/>
+            <attribute name="jar-97-Extension-Name" value="${manifest.file.reference.TecniconVersao.jar-1}"/>
+            <attribute name="jar-98-Extension-Name" value="${manifest.file.reference.TecniconWorkflowEngine.jar-1}"/>
+            <attribute name="jar-99-Extension-Name" value="${manifest.file.reference.ArquivosConfiguracao.jar-1}"/>
+            <attribute name="jar-100-Extension-Name" value="${manifest.file.reference.ComponenteHtml.jar-1}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
@@ -1000,6 +1150,56 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.TecniconUtils.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.TecniconVersao.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.TecniconWorkflowEngine.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniFuncoes.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconCalculoICMS.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconClasseRelatorio.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconCompilador.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconConsultaCheckCheck.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconConsultaSOAWebServices.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconConsultaSOAWebServicesPROD.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconCriptografia.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconDB.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconDBManager.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconDMDados.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconDMTabelas.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconDiff.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconESocialComunica.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconESocialSchema_v02_05.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconEnviarEmaill.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconExcecoes.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconExpedicao.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconFW.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconFactoryPDF.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconFileUtils.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconFlex.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconFlyingSaucerR10.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconFolha.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconGeral.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconInfoHardware.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconInformacoes.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconInterfaces.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconJson.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconLookup.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconMCP.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconMail.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconNFEDistribuicao.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconPDFRenderer.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconPolice.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconPreco.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconPrintECF.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconProcSinc.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconPropertySet.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconRMIRemote.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconSPC.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconSwingUtils.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconTDataSet.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconTSessao.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconTrataPostLib.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconUtils.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconVersao.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.TecniconWorkflowEngine.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.ArquivosConfiguracao.jar-1}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.ComponenteHtml.jar-1}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">
