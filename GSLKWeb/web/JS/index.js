@@ -68,22 +68,6 @@ function init() {
             }, function (erro) {
         alert("Erro na requisição:" + erro);
     }, "");
-    setTimeout(function () {
-        executaServico("GSLKJava", "buscaDados", "buscaTiposPagameno",
-                function (data) {
-                    for (var x = 0; x < data.length; x++) {
-                        var pagamentos =
-                                '  <div class="contrataPlano-paga exemplo2">'
-                                + '    <input type="radio" class="cursorPointer" id="p_' + data[x].CPAGAMENTO + '" name="tipo" value="' + data[x].NOME + '">'
-                                + '    <label for="p_' + data[x].CPAGAMENTO + '" class="cursorPointer"> ' + data[x].NOME + '</label>'
-                                + '</div>';
-                        document.querySelector(".divTiposPagamento").innerHTML += pagamentos;
-                    }
-
-                }, function (erro) {
-            alert("Erro na requisição:" + erro, "Atenção!");
-        }, "");
-    }, 500);
 }
 
 function fazerLogin() {
@@ -273,38 +257,21 @@ function contatoFeedback() {
 function contrataPlano(e) {
     var cplano = document.querySelector(".contrataPlano-valor").id.split("_")[0];
     var cuser = document.querySelector(".contrataPlano-valor").id.split("_")[1];
-    var cpagamento;
-    for (var i = 0; i < document.getElementsByName("tipo").length; i++) {
-        if (document.getElementsByName("tipo")[i].checked) {
-            cpagamento = document.getElementsByName("tipo")[i].id.split("_")[1];
-        }
-    }
-    var data = new Date();
-    var dataa = data.getDate() + "." + data.getMonth() + "." + data.getFullYear();
-    var parametros = "&CUSER=" + cuser + "&CPLANO=" + cplano + "&CPAGAMENTO=" + cplano + "&DATA=" + dataa;
+    var parametros = "&CCLIFOR=" + cuser + "&CPLANO=" + cplano;
     if (cplano !== undefined && cplano !== "" && cplano !== 0) {
-        if (cpagamento !== undefined && cpagamento !== "" && cpagamento !== 0) {
-            if (cuser !== "" && cuser !== null) {
-//projeto, classe, metodo, funcaoOK, funcaoErro, parametros
-                executaServico("GSLKJava", "contrataPlano", "contrataPlano",
-                        function (data) {
-                            if (data.STATUS) {
-                                preencheDadosCliente(cuser);
-                                document.querySelector(".tampaBackPromocao").classList.add("cont-inVisivel");
-                                alert(data.MSG, "Muito bem!");
-                            } else {
-                                alert("Você tem informações não preenchidas para poder fazer a sua assinatura! \r\n Verifique nas configurações as informações que estão faltando...", "Atenção!");
-                            }
-                        }, function (erro) {
-                    alert("Erro na requisição:" + erro);
-                }, parametros);
-                alert("Sua assinatura foi concluída com sucesso!\r\nConfira seu email com as informações do plano contratado...", "Muito bem!");
-                preencheDadosCliente(cuser);
-                document.querySelector(".tampaBackPromocao").classList.add("cont-inVisivel");
-            } else {
-                document.querySelector("#header_btnEntrar").click();
-                alert("Você deve fazer o loguin antes de contratar um plano!");
-            }
+        if (cuser !== "" && cuser !== null) {
+            executaServico("GSLKJava", "realizaContrato", "cadastroContrato",
+                    function (data) {
+                        preencheDadosCliente(cuser);
+                        document.querySelector(".tampaBackPromocao").classList.add("cont-inVisivel");
+                        alert(data, "Muito bem!");
+                    }, function (erro) {
+                alert("Erro na requisição:" + erro);
+            }, parametros);
+            document.querySelector(".tampaBackPromocao").classList.add("cont-inVisivel");
+        } else {
+            document.querySelector("#header_btnEntrar").click();
+            alert("Você deve fazer o loguin antes de contratar um plano!");
         }
     }
 }
@@ -616,7 +583,7 @@ function mostraPDF(e) {
     document.querySelector("#opcoes_fatura").classList.add("cont-inVisivel");
     document.querySelector("#dvPDF").classList.remove("cont-inVisivel");
     var params = "&slImpressoras=MATRICIAL&tiporetorno=X&tipoImp=R&numCopias=1&impDuplex=false&RE_PRINT=&&relatorioesp=1528&SRECEBER=" + e.target.parentElement.getAttribute('sreceber') + "&CFILIAL=1&mime=pdf&zoom=100";
-    var src = 'http://portal.tecnicon.com.br:7078/Tecnicon/Controller?sessao=-9876&acao=TecniconRelatorioEsp.RelatorioEsp.gerarRelatorio&' + params + '&mime=pdf#zoom=100';
+    var src = 'http://' + window.location.href.split("/")[2] + '/Tecnicon/Controller?sessao=-9876&acao=TecniconRelatorioEsp.RelatorioEsp.gerarRelatorio&' + params + '&mime=pdf#zoom=100';
     document.querySelector('#iframeRel').src = src;
     jQuery('#iframeRel').load(function () {});
 }
