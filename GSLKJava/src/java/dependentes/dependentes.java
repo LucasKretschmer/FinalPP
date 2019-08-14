@@ -108,7 +108,7 @@ public class dependentes {
             TClientDataSet cds = TClientDataSet.create(vs, "CLIFORDEP");
             cds.createDataSet();
             cds.condicao(" WHERE CLIFORDEP.NOME = '" + vs.getParameter("NOME") + "' "
-                    + " OR (CLIFORDEP.DTNASC = '" + vs.getParameter("DATA") + "' AND CLIFORDEP.CPFDEPENDENTE = " + vs.getParameter("CPF") + ") ");
+                    + " OR (CLIFORDEP.DTNASC = '" + Funcoes.formatarDB(vs.getParameter("DATA"), "D") + "' AND CLIFORDEP.CPFDEPENDENTE = " + vs.getParameter("CPF") + ") ");
             cds.open();
 
             if (cds.isEmpty()) {
